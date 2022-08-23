@@ -1,0 +1,127 @@
+:root{
+    --grennColor: rgb(59,187,121);
+}
+a{
+    color: black !important;
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+.myMenuActive{
+    color: var(--grennColor) !important;
+    font-weight: bold !important;
+}
+.myBreadcrumbActive{
+    color: var(--grennColor) !important;
+    text-decoration: none;
+}
+.myTitles{
+    margin-top: 25px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 14px;
+    font-weight: bold;
+}
+.mySepartorTitle{
+    border-top: 1px solid #dee2e6;
+}
+.mySepartor{
+    margin-top: 25px;
+    padding-bottom: 5px;
+    border-top: 1px solid #dee2e6;
+}
+.myGreenBtn{
+    border: 1px solid green !important;
+    background-color: var(--grennColor) !important;
+}
+.myGreenLink{
+    color: var(--grennColor) !important;
+}
+.myRangeMoney{
+    height: 38px !important;
+    width: 100% !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.myOptionSpan{
+    padding-top: 8px;
+}
+.myOption{
+    width: 100%;
+    border: 1px solid #dee2e6 !important;
+}
+.myGreenOption{
+    border: 1px solid green !important;
+    background-color: var(--grennColor) !important;
+    color: white !important;
+}
+.mySize{
+    height: 40px !important;
+    width: 100% !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.myCheckBoxDescription{
+    padding-left: 10px;
+}
+.myMoneyValue{
+    color: var(--grennColor);
+    font-weight: bold;
+    font-size: large;
+}
+.myCardInformation{
+    height: 100%;
+    width: 100%;
+}
+.myBrandImg{
+    width: 100%;
+    padding-top: 25px;
+    display: block;
+}
+.myProductCard{
+    padding-top: 20px;
+}
+.myActivePage{
+    background-color: var(--grennColor) !important;
+    border: 1px solid green !important;
+    color: white !important;
+}
+.myShortCategories{
+    display: none;
+}
+.myLargeCategories{
+    display: block;
+}
+.myShortColors{
+    display: none;
+}
+.myLargeColors{
+    display: block;
+}
+
+/*mobil min-width: 480*/
+/*tablet min-width: 768*/
+/*descktop min-width: 992*/
+/*max min-width: 1280*/
+@media only screen and (max-width:768px) {
+    .myShortCategories{
+        display: block;
+    }
+    .myLargeCategories{
+        display: none;
+    }
+    .myShortColors{
+        display: block;
+    }
+    .myLargeColors{
+        display: none;
+    }
+    .myBrandImg{
+        display: none;
+    }
+}
