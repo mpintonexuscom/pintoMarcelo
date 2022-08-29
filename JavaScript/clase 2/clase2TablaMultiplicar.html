@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Tabla</h1>
+    <label>Valor inicio</label>
+    <input type="number" value="0" id="from">
+    <label>Valor final</label>
+    <input type="number" value="0" id="to">
+    <button onclick="return tabla();" id="btnContador">Generar</button>
+    <span id="tabla"></span>
+</body>
+</html>
+<script type="text/javascript">
+
+        function tabla(){
+
+            let from = parseInt(document.getElementById("from").value);
+            let to = parseInt(document.getElementById("to").value);
+
+            let tabla = "";
+            for(var i=from; i<=to; i++){
+                tabla = tabla + "<br>" + "<br>" + "Tabla del "+i+"<br>";
+                for(var j=1; j<=10; j++){
+                    tabla = tabla + "<br>"+ i +"x"+j+" = "+ i * j;
+                }
+            }
+
+            document.getElementById("tabla").innerHTML = tabla;
+        }
+
+</script>

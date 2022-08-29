@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <p>Tabla</p>
+</body>
+</html>
+<script type="text/javascript">
+
+        function tabla(){
+
+            let from = parseInt(prompt("Ingrese el valor inicial"));
+            let to = parseInt(prompt("Ingrese el valor inicial"));
+
+            /*if (from.trim() == '' || to.trim() == ''){
+                alert("Debe ingresar ambos valores numericos");
+                return false;
+            }*/
+
+            for(var i=from; i<=to; i++){
+                console.log("Tabla del "+i);
+                for(var j=1; j<=10; j++){
+                    console.log(i +"x"+j+" = "+ i * j);
+                }
+                console.log("-----------------");
+            }
+        }
+
+        tabla();
+
+</script>

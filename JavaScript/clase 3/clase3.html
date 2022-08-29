@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Contador: <span id="contador">0</span></h1>
+    <div>
+        <label>Nombres</label>
+        <input type="text" value="" placeholder="Ingrese el nombre" id="name">
+    </div>
+    <div>
+        <label>Apellidos</label>
+        <input type="text" value="" placeholder="Ingrese el apellido" id="surname">
+    </div>
+    <div>
+        <label>Telefonos</label>
+        <input type="text" value="" placeholder="Ingrese el telefono" id="tel">
+    </div>
+    <button onclick="return guardarDatos();" id="btnGuardar">Guardar</button>
+    <span id="resultado">
+
+    </span>
+</body>
+</html>
+<script type="text/javascript">
+    
+    const tope = 10;
+    var arreglo = [];
+
+    document.getElementById("name").focus();
+
+    function guardarDatos(){
+        
+        if (arreglo.length <= tope) {
+
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let tel = document.getElementById("tel").value;
+
+            arreglo.push(name+" "+surname+" "+tel);
+
+            document.getElementById("name").value = "";
+            document.getElementById("surname").value = "";
+            document.getElementById("tel").value = "";
+            document.getElementById("contador").innerHTML = arreglo.length;
+            
+            if (arreglo.length === tope) {
+                let valores = "";
+                for (var i=0; i<arreglo.length; i++){
+                    valores = valores.concat("<br>" + arreglo[i]);
+                }
+                document.getElementById("resultado").innerHTML = "<br>" + valores;
+                document.getElementById("btnGuardar").setAttribute("disabled","disabled");
+            } else {
+                document.getElementById("name").focus();
+            }
+        }
+
+        return false;
+    }
+
+</script>
