@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Contador: <span id="contador">0</span></h1>
+    <div>
+        <label>Nombres</label>
+        <input type="text" value="" placeholder="Ingrese el nombre" id="name">
+    </div>
+    <div>
+        <label>Apellidos</label>
+        <input type="text" value="" placeholder="Ingrese el apellido" id="surname">
+    </div>
+    <div>
+        <label>Telefonos</label>
+        <input type="text" value="" placeholder="Ingrese el telefono" id="tel">
+    </div>
+    <div>
+        <label>Anio de nacimiento</label>
+        <input type="number" value="0" id="age">
+    </div>
+    <div>
+        <label>Precio</label>
+        <input type="number" value="0" min="0" max="100000" step="0.1" id="precio">
+    </div>
+    <button onclick="return guardarDatos();" id="btnGuardar">Guardar</button>
+    <span id="resultado"></span>
+    <span id="resultadoSuma"></span>
+</body>
+</html>
+<script type="text/javascript">
+    
+    const tope = 2;
+    var arreglo = [];
+
+    document.getElementById("name").focus();
+
+    function guardarDatos(){
+        
+        if (arreglo.length <= tope) {
+
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let tel = document.getElementById("tel").value;
+            let edad = document.getElementById("age").value;
+            let precio = document.getElementById("precio").value;
+
+
+            const datos = {
+                name : name,
+                surname : surname,
+                tel : tel,
+                edad : edad,
+                precio : parseFloat(precio)
+            }
+
+            arreglo.push(datos);
+
+            document.getElementById("name").value = "";
+            document.getElementById("surname").value = "";
+            document.getElementById("tel").value = "";
+            document.getElementById("age").value = "0";
+            document.getElementById("precio").value = "0";
+            document.getElementById("contador").innerHTML = arreglo.length;
+            
+            if (arreglo.length === tope) {
+
+                arreglo.sort((a,b)=>b.edad-a.edad);
+
+                let acumulador = 0;
+                let sumaPrecio = arreglo.reduce((acumulador,current)=> acumulador + current.precio, 0);
+
+                let valores = "";
+                for (var i=0; i<arreglo.length; i++){
+                    valores = valores.concat("<br>" + arreglo[i].name + " " + arreglo[i].surname + " " + arreglo[i].tel + " " + arreglo[i].edad + " " + arreglo[i].precio);
+                }
+                document.getElementById("resultado").innerHTML = "<br>" + valores;
+                document.getElementById("resultadoSuma").innerHTML = "<br><br>" +"La suma total es de $" + sumaPrecio;
+
+                document.getElementById("btnGuardar").setAttribute("disabled","disabled");
+            } else {
+                document.getElementById("name").focus();
+            }
+        }
+
+        return false;
+    }
+
+</script>
